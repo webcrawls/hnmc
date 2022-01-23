@@ -50,6 +50,7 @@ tasks {
     // Set UTF-8
     processResources {
         filteringCharset = Charsets.UTF_8.name()
+        expand(project.properties)
     }
     // Shade & relocate dependencies
     shadowJar {
