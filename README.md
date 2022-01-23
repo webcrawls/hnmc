@@ -10,6 +10,8 @@ A Minecraft plugin that adds Hacker News to your server.
 ### TODO
 
 - Search HN in-game
+- Attempt to render website as a book
+- Sort types
 
 # Installation
 
