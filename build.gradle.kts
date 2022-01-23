@@ -16,14 +16,8 @@ repositories {
     mavenLocal()
     // Minecraft
     maven("https://papermc.io/repo/repository/maven-public/")
-    maven("https://repo.extendedclip.com/content/repositories/placeholderapi/")
-    maven("https://repo.codemc.io/repository/maven-public/")
-    maven("https://repo.citizensnpcs.co/")
-    maven("https://jitpack.io")
-    maven("https://maven.enginehub.org/repo/")
-    maven("https://repo.essentialsx.net/snapshots/")
-    maven("https://repo.dmulloy2.net/repository/public")
     maven("https://repo.incendo.org/content/repositories/snapshots/")
+    maven("https://repo.broccol.ai/snapshots/")
 }
 dependencies {
     // Minecraft
