@@ -1,0 +1,7 @@
+name: HNMC
+version: '${version}'
+main: sh.kaden.hnmc.HNMCPlugin
+api-version: 1.18
+authors: [ bluely ]
+description: HackerNews in Minecraft, like it was always meant to be.
+website: kaden.sh
