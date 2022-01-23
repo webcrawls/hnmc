@@ -3,5 +3,12 @@ version: '${version}'
 main: sh.kaden.hnmc.HNMCPlugin
 api-version: 1.18
 authors: [ bluely ]
-description: HackerNews in Minecraft, like it was always meant to be.
+description: Hacker News in Minecraft, like it was always meant to be.
 website: kaden.sh
+permissions:
+  hn.command.use:
+    description: Access to /hn.
+    default: op
+  hn.craft:
+    description: Access to the crafting recipe.
+    default: not op
