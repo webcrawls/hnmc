@@ -2,6 +2,15 @@
 
 A Minecraft plugin that adds Hacker News to your server.
 
+# Features
+
+- Let your players waste their time responsibly by providing an in-game UI for Hacker News
+- Craftable Hacker News book
+
+### TODO
+
+- Search HN in-game
+
 # Installation
 
 1. Ensure you are running a Paper server running 1.18.1.
@@ -12,6 +21,8 @@ A Minecraft plugin that adds Hacker News to your server.
 
 HNMC adds a new book called Hacker News. When right-clicked, this book will open up an interface containing the latest
 HN posts.
+
+The plugin currently pings the HN API every 10 minutes for the top stories. Only the top stories are available right now.
 
 // **TODO** interface image
 
