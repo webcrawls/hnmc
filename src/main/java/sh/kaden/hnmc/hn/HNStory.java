@@ -10,7 +10,7 @@ import java.time.Instant;
 public class HNStory extends HNItem {
 
     private final @NonNull String by;
-    private final @NonNull String url;
+    private final @NonNull String text;
     private final @NonNull String title;
     private final @NonNull Instant time;
     private final int score;
@@ -19,18 +19,18 @@ public class HNStory extends HNItem {
      * Constructs {@code HNStory}.
      *
      * @param by    the author
-     * @param url   the url
+     * @param text   the text
      * @param title the title
      * @param time  the time
      * @param score the score
      */
     public HNStory(final @NonNull String by,
-                   final @NonNull String url,
+                   final @NonNull String text,
                    final @NonNull String title,
                    final @NonNull Instant time,
                    final int score) {
         this.by = by;
-        this.url = url;
+        this.text = text;
         this.title = title;
         this.time = time;
         this.score = score;
@@ -46,12 +46,12 @@ public class HNStory extends HNItem {
     }
 
     /**
-     * Returns the URL this story links to.
+     * Returns the text contained within this story. This may be a URL or the story text.
      *
      * @return the URL
      */
-    public @NonNull String url() {
-        return this.url;
+    public @NonNull String text() {
+        return this.text;
     }
 
     /**
@@ -85,7 +85,7 @@ public class HNStory extends HNItem {
     public @NonNull String toString() {
         return "HNStory{" +
                 "by=" + this.by + "," +
-                "url=" + this.url + "," +
+                "url=" + this.text + "," +
                 "title=" + this.title + "," +
                 "time=" + this.time.toString() + "," +
                 "score=" + this.score +

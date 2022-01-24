@@ -2,6 +2,7 @@ package sh.kaden.hnmc;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import org.checkerframework.checker.nullness.qual.MonotonicNonNull;
+import org.incendo.interfaces.paper.PaperInterfaceListeners;
 import sh.kaden.hnmc.hn.HNService;
 import sh.kaden.hnmc.menu.MenuService;
 
@@ -26,6 +27,7 @@ public final class HNMCPlugin extends JavaPlugin {
         // Setup
         this.itemService.registerRecipe();
         this.commandService.registerCommands();
+        PaperInterfaceListeners.install(this);
     }
 
     @Override

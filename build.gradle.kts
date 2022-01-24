@@ -12,8 +12,8 @@ java {
 }
 repositories {
     // Main repos
-    mavenCentral()
     mavenLocal()
+    mavenCentral()
     // Minecraft
     maven("https://papermc.io/repo/repository/maven-public/")
     maven("https://repo.incendo.org/content/repositories/snapshots/")
