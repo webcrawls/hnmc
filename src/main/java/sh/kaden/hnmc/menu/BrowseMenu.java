@@ -12,8 +12,6 @@ import org.incendo.interfaces.paper.PlayerViewer;
 import org.incendo.interfaces.paper.element.MultiTextElement;
 import org.incendo.interfaces.paper.element.TextElement;
 import org.incendo.interfaces.paper.type.BookInterface;
-import sh.kaden.hnmc.hn.HNService;
-import sh.kaden.hnmc.hn.HNStory;
 
 import java.util.ArrayList;
 import java.util.List;

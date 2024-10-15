@@ -11,8 +11,6 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 import org.incendo.interfaces.paper.PlayerViewer;
 import org.incendo.interfaces.paper.element.TextElement;
 import org.incendo.interfaces.paper.type.BookInterface;
-import sh.kaden.hnmc.hn.HNService;
-import sh.kaden.hnmc.hn.HNStory;
 
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -46,7 +44,7 @@ public class StoryMenu implements Menu {
      *
      * @param player the player
      * @throws UnsupportedOperationException this method is not implemented. Please provide an
-     *                                       {@link sh.kaden.hnmc.hn.HNItem} using {@link #open(Player, HNStory)}
+     *                                       {@link sh.kaden.hnmc.news.HNItem} using {@link #open(Player, HNStory)}
      */
     @Override
     public void open(final @NonNull Player player) {
