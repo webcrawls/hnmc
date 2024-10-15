@@ -1,71 +1,38 @@
 plugins {
-    `java-library`
-    `maven-publish`
-    id("io.papermc.paperweight.userdev")
-    id("com.github.johnrengelman.shadow")
-    id("org.checkerframework")
+    kotlin("jvm") version "2.1.0-Beta2"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
 }
-group = "sh.kaden.hnmc"
-version = "1.0.0-SNAPSHOT"
-java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
-}
+
+group = "sh.kaden.blockloc"
+version = "1.0.0"
+
 repositories {
-    // Main repos
-    mavenLocal()
     mavenCentral()
-    // Minecraft
-    maven("https://papermc.io/repo/repository/maven-public/")
-    maven("https://repo.incendo.org/content/repositories/snapshots/")
-    maven("https://repo.broccol.ai/snapshots/")
+    maven("https://repo.papermc.io/repository/maven-public/") { name = "papermc-repo" }
+    maven("https://oss.sonatype.org/content/groups/public/") { name = "sonatype" }
+    maven("https://maven.enginehub.org/repo/") { name = "enginehub" }
 }
+
 dependencies {
-    // Minecraft
-    paperDevBundle("1.18.1-R0.1-SNAPSHOT") // paper dev bundle
-    implementation(libs.adventure.minimessage)
-    implementation(libs.cloud.core)
-    implementation(libs.cloud.paper)
-    implementation(libs.interfaces.paper)
-    implementation(libs.corn.minecraft.paper) {
-        exclude(group="io.papermc.paper", module="paper-api")
-    }
-    // Misc
-    implementation(libs.configurate.hocon)
-    implementation(libs.checker.qual)
+    compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
+    compileOnly("com.sk89q.worldedit:worldedit-bukkit:7.3.0")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 }
-tasks {
-    // Re-obfuscate jar with correct mappings using Paperweight.
-    assemble {
-        dependsOn(reobfJar)
-    }
-    // Set UTF-8 & Java 17
-    compileJava {
-        options.encoding = Charsets.UTF_8.name()
-        options.release.set(17)
-    }
-    // Set UTF-8
-    javadoc {
-        options.encoding = Charsets.UTF_8.name()
-    }
-    // Set UTF-8
-    processResources {
-        filteringCharset = Charsets.UTF_8.name()
-        expand(project.properties)
-    }
-    // Shade & relocate dependencies
-    shadowJar {
-        fun reloc(pkg: MinimalExternalModuleDependency) = relocate(pkg.module.group, "sh.kaden.hnmc.dependencies.${pkg.module.group.split(".").last()}")
-        reloc(libs.cloud.core.get())
-        reloc(libs.interfaces.paper.get())
-        reloc(libs.corn.minecraft.paper.get())
-        reloc(libs.configurate.hocon.get())
-    }
+
+val targetJavaVersion = 21
+kotlin {
+    jvmToolchain(targetJavaVersion)
 }
-publishing {
-    // create maven publication using java artifacts
-    publications {
-        create<MavenPublication>("maven") {
-            from(components["java"])
-        }
+
+tasks.build {
+    dependsOn("shadowJar")
+}
+
+tasks.processResources {
+    val props = mapOf("version" to version)
+    inputs.properties(props)
+    filteringCharset = "UTF-8"
+    filesMatching("paper-plugin.yml") {
+        expand(props)
     }
 }

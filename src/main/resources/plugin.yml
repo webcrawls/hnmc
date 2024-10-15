@@ -1,14 +1,7 @@
-name: HNMC
-version: '${version}'
-main: sh.kaden.hnmc.HNMCPlugin
-api-version: 1.18
-authors: [ bluely ]
-description: Hacker News in Minecraft, like it was always meant to be.
-website: kaden.sh
-permissions:
-  hn.command.use:
-    description: Access to /hn.
-    default: op
-  hn.craft:
-    description: Access to the crafting recipe.
-    default: not op
+name: BlockLoc
+main: sh.kaden.hnmc.HackerNewsPlugin
+version: 1.0.0
+description: Hacker News in Minecraft.
+author: webcrawls <kadenscott>
+website: https://github.com/webcrawls/hnmc
+api-version: '1.21.1'

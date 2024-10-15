@@ -27,7 +27,6 @@ public final class HNMCPlugin extends JavaPlugin {
         // Setup
         this.itemService.registerRecipe();
         this.commandService.registerCommands();
-        PaperInterfaceListeners.install(this);
     }
 
     @Override
